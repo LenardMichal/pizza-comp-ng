@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+// import { FormControl, FormGroup } from '@angular/forms';
+import {Pizza} from '../../molecules/Pizza';
+import { PizzaService } from 'src/app/pizza.service';
 
 @Component({
   selector: 'app-pizza-form',
@@ -8,18 +10,23 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class PizzaFormComponent implements OnInit {
 
-  constructor() { }
+  constructor(private pizzaService: PizzaService) { }
 
-  pizzaForm = new FormGroup({
-    radius: new FormControl(10),
-    price: new FormControl(100),
-    quantity: new FormControl(1)
-  })
+  @Input() activePizza!: Pizza;
+
   ngOnInit(): void {
+    this.activePizza = this.pizzaService.getPizza(0);
   }
 
   onSubmit(){
-    console.warn(this.pizzaForm.value);
+    // console.warn(this.pizzaForm.value);
   }
 
+  onUpdate(){
+    this.activePizza.recalcValues();
+  }
+
+  addNewPizza() {
+    this.pizzaService.addPizza()
+    }
 }

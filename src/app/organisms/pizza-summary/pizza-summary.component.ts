@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import PizzaModel from 'src/app/atoms/PizzaModel';
+import { PizzaService } from 'src/app/pizza.service';
 
 @Component({
   selector: 'app-pizza-summary',
@@ -8,12 +9,11 @@ import PizzaModel from 'src/app/atoms/PizzaModel';
 })
 export class PizzaSummaryComponent implements OnInit {
 
-  constructor() { }
+  constructor(private pizzaService : PizzaService) { }
   // Lets encode all 
-  @Input() pizza : PizzaModel;
+  pizzas: Array<PizzaModel> = [];
 
   ngOnInit(): void {
-    
+    this.pizzas = this.pizzaService.getPizzas();
   }
-
 }

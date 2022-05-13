@@ -1,0 +1,15 @@
+section {
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 10px;
+}
+
+/* section > div {
+    row-gap: 10px;
+} */
+
+section > p {
+    text-align: center;
+}

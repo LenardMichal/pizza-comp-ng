@@ -1,6 +1,15 @@
-<form [formGroup]="pizzaForm"
-(ngSubmit)="onSubmit()">
-    <input formControlName="radius" type="text">
-    <!-- {{pizzaForm.price.value}} -->
-<button>Dodaj</button>
-</form>
+<div >
+  <input type="text"
+    (ngModelChange)="onUpdate()"
+    [(ngModel)]="activePizza.size"
+    name="radius">
+  <input type="text"
+    (ngModelChange)="onUpdate()"
+    [(ngModel)]="activePizza.price"
+    name="price">
+  <input type="text"
+    (ngModelChange)="onUpdate()"
+    [(ngModel)]="activePizza.quantity"
+    name="quantity">
+    <button (click)="addNewPizza()">Dodaj</button>
+</div>

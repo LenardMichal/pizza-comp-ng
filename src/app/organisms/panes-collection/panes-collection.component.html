@@ -1,0 +1,14 @@
+<section *ngIf="panesCollection 
+        && panesCollection.length > 0; else elseBlock">
+    <app-pizza-pane 
+        (onActivePane)="activationHandler($event)" 
+        (onDestroyPane)="destroyPane($event)"
+        *ngFor="let pane of panesCollection; let i = index"
+        [pizza]="pane">
+    </app-pizza-pane>
+</section>
+<ng-template #elseBlock>
+    <p>
+        There is no content Yet
+    </p>
+</ng-template>

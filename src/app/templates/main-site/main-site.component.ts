@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {Pizza} from '../../molecules/Pizza';
+import { PizzaService } from 'src/app/pizza.service';
 
 @Component({
   selector: 'app-main-site',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainSiteComponent implements OnInit {
 
-  constructor() { }
+  constructor(private pizzaService: PizzaService) { }
+
+  pizzas: Pizza[] = [];
+  activePizza = this.pizzaService.getPizza(0);
 
   ngOnInit(): void {
+    this.pizzas = this.pizzaService.getPizzas();
+    // this.activePizza = this.pizzaService.getPizza(0);
+  }
+
+  onActivePane(e: Pizza) {
+    this.activePizza = e;
   }
 
 }

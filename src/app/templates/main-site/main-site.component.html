@@ -1,3 +1,2 @@
-<div>
-    <app-pizza-form></app-pizza-form>
-</div>
+<app-pizza-form [activePizza]="activePizza"></app-pizza-form>
+<app-panes-collection (activePane)="onActivePane($event)" [panesCollection]="pizzas"></app-panes-collection>
