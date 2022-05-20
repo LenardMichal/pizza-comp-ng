@@ -11,6 +11,8 @@ export class PizzaPaneComponent implements OnInit {
   constructor() { }
 
   @Input() pizza!: Pizza;
+  
+  @Input() stylings? : IStyling
 
   @Output() onActivePane = new EventEmitter();
 
@@ -27,5 +29,9 @@ export class PizzaPaneComponent implements OnInit {
     this.onDestroyPane.emit("DESTROY");
   }
 
+  
+}
+
+interface IStyling {
   
 }

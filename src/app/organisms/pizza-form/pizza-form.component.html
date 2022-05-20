@@ -1,15 +1,21 @@
-<div >
+<form>
+  <label for="radius">Radius:</label>
   <input type="text"
     (ngModelChange)="onUpdate()"
     [(ngModel)]="activePizza.size"
-    name="radius">
+    name="radius"
+    id="radius">
+  <label for="price">Price:</label>
   <input type="text"
     (ngModelChange)="onUpdate()"
     [(ngModel)]="activePizza.price"
-    name="price">
+    name="price"
+    id="price">
+  <label for="quantity">Quantity:</label>
   <input type="text"
     (ngModelChange)="onUpdate()"
     [(ngModel)]="activePizza.quantity"
+    id="quantity"
     name="quantity">
     <button (click)="addNewPizza()">Dodaj</button>
-</div>
+</form>
